@@ -1,0 +1,18 @@
+List<String> productImages= [
+  'assets/images/abuAuf.png',
+  'assets/images/adam.png',
+  'assets/images/albremo.png',
+  'assets/images/baker.png',
+  'assets/images/choice.png',
+  'assets/images/elarosatea.png',
+  'assets/images/faragello.png',
+  'assets/images/hediaoil.png',
+  'assets/images/honey.png',
+  'assets/images/lebton.png',
+  'assets/images/mage.png',
+  'assets/images/nescafe.png',
+  'assets/images/nodels.png',
+  'assets/images/ragad.png',
+  'assets/images/sunny.png',
+  'assets/images/sunshine.png',
+];

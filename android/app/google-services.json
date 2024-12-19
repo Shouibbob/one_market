@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "271578358526",
+    "project_id": "one-market-28",
+    "storage_bucket": "one-market-28.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:271578358526:android:b9afed084d469131f2fbaf",
+        "android_client_info": {
+          "package_name": "com.eraasoft.one_market"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFF5fQlpZ6s5B9rMqmUFIHFxAnfYkOV4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
