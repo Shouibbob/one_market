@@ -140,6 +140,9 @@ class _CartState extends State<Cart> {
                               children: [
                                 IconButton(
                                   onPressed: () {
+                                    if (quantities[index] == 0) {
+                                      productNames.removeAt(index);
+                                    }
                                     decrementQuantity(index);
                                   },
                                   icon: const Icon(Icons.remove),

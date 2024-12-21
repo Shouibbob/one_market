@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 class ProductItem {
   String name;
-  double price;
+  String price;
   int quantity;
   ProductItem(
       {required this.name, required this.price, required this.quantity});
 }
 
 class ProductProvider with ChangeNotifier {
-  List<ProductItem> cartItems = [];
+  List<ProductItem> productItems = [];
 
   void addToCart(ProductItem item) {
-    cartItems.add(item);
+    productItems.add(item);
     notifyListeners();
   }
 }

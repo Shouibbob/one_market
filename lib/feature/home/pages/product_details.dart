@@ -5,10 +5,12 @@ import 'package:one_market/core/constants/product_data.dart';
 import 'package:one_market/core/utils/colors.dart';
 import 'package:one_market/core/utils/text_style.dart';
 import 'package:one_market/feature/cart/presentation/pages/cart_product.dart';
+import 'package:one_market/feature/home/widgets/card_widget.dart';
 import 'package:provider/provider.dart';
 
 class ProductDetails extends StatefulWidget {
-  const ProductDetails({super.key});
+  List<CardItem> product = [];
+  ProductDetails({super.key, required this.product});
 
   @override
   State<ProductDetails> createState() => _ProductDetailsState();
@@ -20,11 +22,11 @@ class _ProductDetailsState extends State<ProductDetails> {
 
   void addToCart() {
     ProductItem newItem = ProductItem(
-      name: 'شاي ليبتون',
-      price: 19.19,
+      name: widget.product[0].title,
+      price: widget.product[0].pricing,
       quantity: 1,
     );
-    Provider.of<ProductProvider>(context, listen: false).addToCart(newItem);
+    ProductProvider().addToCart(newItem);
   }
 
   void selectButton(int buttonIndex) {
@@ -58,7 +60,7 @@ class _ProductDetailsState extends State<ProductDetails> {
         children: [
           CarouselSlider(
             options: CarouselOptions(
-              height: 200,
+              height: MediaQuery.of(context).size.height / 3,
               enlargeCenterPage: true,
               onPageChanged: (index, _) {
                 setState(() {
@@ -66,11 +68,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                 });
               },
             ),
-            items: _image.map((image) {
+            items: widget.product.map((image) {
               return Builder(
                 builder: (context) {
                   return Image.asset(
-                    image,
+                    image.images[_currentSlide],
                     fit: BoxFit.cover,
                   );
                 },
@@ -86,14 +88,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                 Row(
                   children: [
                     Text(
-                      'بن ابو عوف',
+                      widget.product[_currentSlide].title,
                       style: getTitleStyle(
                         fontSize: 24,
                       ),
                     ),
                     const Spacer(),
                     Text(
-                      'السعر :1350 ج.م',
+                      '${widget.product[_currentSlide].pricing}',
                       style: getBodyStyle(color: AppColors.secondryColor),
                     ),
                   ],
@@ -102,38 +104,38 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
           ),
           const Gap(16),
-          Padding(
-            padding: const EdgeInsets.all(18),
-            child: Text(
-              'وصف المنتج',
-              style: getHeadLineStyle(fontSize: 22),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 16),
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: AppColors.primaryColor,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'أحلي بن عالرايق',
-                  style: getBodyStyle(color: AppColors.secondryColor),
-                ),
-                Text(
-                  'أحلي بن عالرايق',
-                  style: getBodyStyle(color: AppColors.secondryColor),
-                ),
-                Text(
-                  'أحلي بن عالرايق',
-                  style: getBodyStyle(color: AppColors.secondryColor),
-                ),
-              ],
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.all(18),
+          //   child: Text(
+          //     'وصف المنتج',
+          //     style: getHeadLineStyle(fontSize: 22),
+          //   ),
+          // ),
+          // Container(
+          //   margin: const EdgeInsets.symmetric(horizontal: 16),
+          //   padding: const EdgeInsets.all(16),
+          //   decoration: BoxDecoration(
+          //     color: AppColors.primaryColor,
+          //     borderRadius: BorderRadius.circular(8),
+          //   ),
+          //   child: Column(
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       Text(
+          //         'أحلي بن عالرايق',
+          //         style: getBodyStyle(color: AppColors.secondryColor),
+          //       ),
+          //       Text(
+          //         'أحلي بن عالرايق',
+          //         style: getBodyStyle(color: AppColors.secondryColor),
+          //       ),
+          //       Text(
+          //         'أحلي بن عالرايق',
+          //         style: getBodyStyle(color: AppColors.secondryColor),
+          //       ),
+          //     ],
+          //   ),
+          // ),
           const Spacer(),
           Row(
             children: [

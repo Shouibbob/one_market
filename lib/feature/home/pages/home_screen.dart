@@ -101,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget buildCard(CardItem cardItem) {
     return GestureDetector(
       onTap: () async {
-        await push(context, const ProductDetails());
+        await push(context, ProductDetails(product:[cardItem],));
       },
       child: Card(
         child: Column(
